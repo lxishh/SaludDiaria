@@ -1,0 +1,49 @@
+<resources>
+
+    <string name="app_name">SaludDiaria</string>
+    <string name="correo">Correo</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="btnIniciar">Iniciar Sesión</string>
+    <string name="Recordar">Recuérdame</string>
+
+
+    <string name="preguntaPass">¿Olvidaste tu contraseña?</string>
+    <string name="recuperarPass">Presiona aquí para recuperarla</string>
+    <string name="menuRegistrar">¿No tienes cuenta? Regístrate aquí</string>
+
+
+    <string name="tituloRecuperarPass">Recuperar contraseña</string>
+    <string name="introduceCorreo">Introduce tu correo electrónico para restablecer tu contraseña</string>
+    <string name="btnRecuperar">Recuperar</string>
+    <string name="envioCorreo">Se te enviará un correo con un enlace para restablecer la contraseña</string>
+
+
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="rcontrasenia">Reingrese contraseña</string>
+    <string name="btnRegistrar">Registrar</string>
+
+
+    <string name="horaEncuesta">Define la hora para la encuesta diaria</string>
+    <string name="btnHoraEncuesta">Definir hora</string>
+
+
+    <string name="tituloEncuesta">Responda las siguientes preguntas</string>
+
+
+    <string name="responderPreguntas">Responda las siguientes preguntas:</string>
+    <string name="pregunta1">1.- ¿Cómo te sentiste hoy en general?</string>}
+    <string name="pregunta2">2.- ¿Has tenido fiebre? (temperatura mayor a 38°C)</string>
+    <string name="pregunta3">3.- ¿Tienes tos o dificultad para respirar hoy?</string>
+    <string name="pregunta4">4.- ¿Has experimentado fatiga o cansancio extremo?</string>
+    <string name="pregunta5">5.- ¿Has tenido dolor o presión en el pecho??</string>
+    <string name="btnFinalizarEncuesta">Finalizar Encuesta</string>
+
+
+    <string name="menuCalendario">Calendario</string>
+    <string name="menuHidratacion">Hidratación</string>
+    <string name="menuEmergencia">Emergencía SOS</string>
+    <string name="menuMedicamentos">Medicamentos</string>
+    <string name="menuFichaMedica">Ficha Médica</string>
+
+</resources>

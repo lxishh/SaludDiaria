@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hoyGeneral">
+        <item>Bien, sin molestias</item>
+        <item>Con alguna molestia</item>
+        <item>Mal, con varios sintomas</item>
+    </string-array>
+
+    <string-array name="fiebre">
+        <item>No</item>
+        <item>Si, leve</item>
+        <item>Si, alta</item>
+    </string-array>
+
+    <string-array name="tosyrespirar">
+        <item>No</item>
+        <item>Si, tos leve</item>
+        <item>Sí, dificultad para respirar o tos persistente</item>
+    </string-array>
+
+    <string-array name="fatiga">
+        <item>No</item>
+        <item>Si, pero leve</item>
+        <item>Si, es muy fuerte</item>
+    </string-array>
+    
+    <string-array name="pecho">
+        <item>No</item>
+        <item>Si, pero leve</item>
+        <item>Si, dolor severo o presión intensa</item>
+    </string-array>
+</resources>
