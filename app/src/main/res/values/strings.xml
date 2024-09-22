@@ -1,7 +1,7 @@
 <resources>
 
     <string name="app_name">SaludDiaria</string>
-    <string name="correo">Correo</string>
+    <string name="correo">Correo Electronico</string>
     <string name="contrasenia">Contraseña</string>
     <string name="btnIniciar">Iniciar Sesión</string>
     <string name="Recordar">Recuérdame</string>
@@ -39,11 +39,49 @@
     <string name="pregunta5">5.- ¿Has tenido dolor o presión en el pecho??</string>
     <string name="btnFinalizarEncuesta">Finalizar Encuesta</string>
 
+    <!---Ajustes-->
+    <string name="AjustesFoto">Foto</string>
+    <string name="DatosCuenta">Actualizar datos de la cuenta</string>
+    <string name="HoraEncuesta">Cambiar horario de encuesta</string>
+    <string name="AjustarNotificaciones">Ajustar Notificaciones</string>
+    <string name="CerrarSesion">Cerrar Sesión</string>
 
+    <!---Actualizar Datos-->
+    <string name="InformacionPersonal">Informacion Personal</string>
+    <string name="Peso">Peso (kg) </string>
+    <string name="Altura">Altura (cm)</string>
+    <string name="Edad">Edad</string>
+
+    <string name="correoEjemplo">admin@gmail.com</string>
+    <string name="passEjemplo">admin123</string>
+
+
+    <string name="DatosInicio">Datos de inicio de sesion</string>
+    <string name="NumeroTel">Numero de telefono</string>
+    <string name="Editar">Editar</string>
+    <string name="btnListo">Listo</string>
+
+
+
+
+    //Menu
     <string name="menuCalendario">Calendario</string>
+    <string name="vAgenda">Ver Agenda</string>
+
+    <string name="horasAgendadas">Horas Agendadas</string>
+    <string name="nConsulta">Agregar nueva consulta</string>
+
+
     <string name="menuHidratacion">Hidratación</string>
+
+
     <string name="menuEmergencia">Emergencía SOS</string>
+
+
     <string name="menuMedicamentos">Medicamentos</string>
+
+
     <string name="menuFichaMedica">Ficha Médica</string>
+
 
 </resources>

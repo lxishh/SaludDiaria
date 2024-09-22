@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/fotoLogo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -84,7 +84,7 @@
         android:id="@+id/textView14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="42dp"
+        android:paddingLeft="43dp"
         android:text="@string/rcontrasenia" />
 
     <EditText
