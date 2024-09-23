@@ -88,7 +88,6 @@
     <string name="btnAgendarCitaMedica">Guardar cita médica</string>
 
 
-
     <string name="menuHidratacion">Hidratación</string>
 
 
@@ -99,6 +98,19 @@
 
 
     <string name="menuFichaMedica">Ficha Médica</string>
+
+    <string name="Lunes">L</string>
+    <string name="Martes">M</string>
+    <string name="Miercoles">M</string>
+    <string name="Jueves">J</string>
+    <string name="Viernes">V</string>
+    <string name="Sabado">S</string>
+    <string name="Domingo">D</string>
+
+    <string name="Daily">Consumo Diario</string>
+    <string name="PreguntaAgua">¿Cuanta agua consumiste?</string>
+    <string name="cantidadAgua">250ml</string>
+    <string name="btnActualizar">Actualizar</string>
 
 
 </resources>

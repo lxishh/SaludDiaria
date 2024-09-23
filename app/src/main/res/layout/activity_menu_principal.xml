@@ -57,6 +57,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
+        android:onClick="rHidratacion"
         android:text="@string/menuHidratacion" />
 
     <Button

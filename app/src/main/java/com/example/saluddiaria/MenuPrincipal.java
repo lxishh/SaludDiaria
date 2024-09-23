@@ -39,4 +39,9 @@ public class MenuPrincipal extends AppCompatActivity {
         Intent i = new Intent(this, Calendario.class);
         startActivity(i);
     }
+
+    public void rHidratacion(View v){
+        Intent i = new Intent(this, Hidratacion.class);
+        startActivity(i);
+    }
 }

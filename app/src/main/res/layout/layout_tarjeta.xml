@@ -42,10 +42,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="true"
-                    android:paddingLeft="90dp"
+                    android:paddingLeft="85dp"
                     android:text="Eliminar"
                     android:textColor="@color/red"
-                    android:textStyle="italic" />
+                    android:textStyle="bold|italic" />
 
             </LinearLayout>
 
