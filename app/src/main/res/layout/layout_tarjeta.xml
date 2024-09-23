@@ -23,12 +23,31 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvLugar"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Lugar" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvLugar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Lugar" />
+
+                <TextView
+                    android:id="@+id/btnEliminar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:paddingLeft="90dp"
+                    android:text="Eliminar"
+                    android:textColor="@color/red"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tvNombre"

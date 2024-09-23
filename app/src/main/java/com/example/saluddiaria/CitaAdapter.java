@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class CitaAdapter extends RecyclerView.Adapter<CitaAdapter.CitaViewHolder> {
@@ -30,6 +33,10 @@ public class CitaAdapter extends RecyclerView.Adapter<CitaAdapter.CitaViewHolder
         holder.tvEspecialidad.setText(cita.getEspecialidad());
         holder.tvFecha.setText(cita.getFecha());
         holder.tvHora.setText(cita.getHora());
+        holder.btnEliminar.setOnClickListener(v -> {
+            eliminarCita(holder.getAdapterPosition());
+        });
+
     }
 
     @Override
@@ -39,6 +46,7 @@ public class CitaAdapter extends RecyclerView.Adapter<CitaAdapter.CitaViewHolder
 
     public static class CitaViewHolder extends RecyclerView.ViewHolder {
         TextView tvLugar, tvNombre, tvEspecialidad, tvFecha, tvHora;
+        TextView btnEliminar;
 
         public CitaViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -47,6 +55,14 @@ public class CitaAdapter extends RecyclerView.Adapter<CitaAdapter.CitaViewHolder
             tvEspecialidad = itemView.findViewById(R.id.tvEspecialidad);
             tvFecha = itemView.findViewById(R.id.tvFecha);
             tvHora = itemView.findViewById(R.id.tvHora);
+            btnEliminar = itemView.findViewById(R.id.btnEliminar);
         }
     }
+
+    public void eliminarCita(int position) {
+        citas.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, citas.size());
+    }
+
 }
