@@ -5,4 +5,7 @@
     <color name="red">#FF0000</color>
     <color name="green">#00FF00</color>
     <color name="blue">#0000FF</color>
+
+    <color name="titulosblue">#0076ff</color>
+    <color name="letrasblue">#2b59a2</color>
 </resources>

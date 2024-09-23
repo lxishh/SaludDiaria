@@ -24,7 +24,7 @@ public class Calendario extends AppCompatActivity {
         });
     }
 
-    public void rAgenda(View v){
+    public void irAgenda(View v){
         Intent i = new Intent(this, Agenda.class);
         startActivity(i);
     }

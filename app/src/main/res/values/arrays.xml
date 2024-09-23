@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="hoyGeneral">
+        <item></item>
         <item>Bien, sin molestias</item>
         <item>Con alguna molestia</item>
         <item>Mal, con varios sintomas</item>
@@ -28,5 +29,30 @@
         <item>No</item>
         <item>Si, pero leve</item>
         <item>Si, dolor severo o presión intensa</item>
+    </string-array>
+
+
+
+    <string-array name="medicamentos">
+        <item>En la hora indicada</item>
+        <item>Media hora antes</item>
+        <item>Una hora antes</item>
+    </string-array>
+
+    <string-array name="hidratacion">
+        <item>Cada dos horas</item>
+        <item>Cada una hora</item>
+        <item>Cada media hora</item>
+    </string-array>
+
+    <string-array name="encuestadiaria">
+        <item>En la hora indicada</item>
+        <item>No notificar</item>
+    </string-array>
+
+    <string-array name="citasmedicas">
+        <item>Dos horas antes</item>
+        <item>Un día antes</item>
+        <item>Una semana antes</item>
     </string-array>
 </resources>

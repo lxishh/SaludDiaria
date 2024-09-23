@@ -13,16 +13,19 @@
         android:theme="@style/Theme.SaludDiaria"
         tools:targetApi="31">
         <activity
+            android:name=".CitaMedica"
+            android:exported="false" />
+        <activity
+            android:name=".Notificaciones"
+            android:exported="false" />
+        <activity
             android:name=".ActualizarDatos"
             android:exported="false" />
         <activity
-            android:name=".Agenda"
-            android:exported="false" />
-        <activity
-            android:name=".PRUEBAS"
-            android:exported="false" />
-        <activity
             android:name=".Calendario"
+            android:exported="false" />
+        <activity
+            android:name=".Agenda"
             android:exported="false" />
         <activity
             android:name=".Ajustes"

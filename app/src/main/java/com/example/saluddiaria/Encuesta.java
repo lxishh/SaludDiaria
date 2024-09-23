@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,21 +28,27 @@ public class Encuesta extends AppCompatActivity {
 
     public void EnviarForm(View v){
         //Recuperar view
-        Spinner sp1 = (Spinner) findViewById(R.id.respuesta1);
-        Spinner sp2 = (Spinner) findViewById(R.id.respuesta2);
-        Spinner sp3 = (Spinner) findViewById(R.id.respuesta3);
-        Spinner sp4 = (Spinner) findViewById(R.id.respuesta4);
-        Spinner sp5 = (Spinner) findViewById(R.id.respuesta5);
+        Spinner respuesta1 = (Spinner) findViewById(R.id.respuesta1);
+        Spinner respuesta2 = (Spinner) findViewById(R.id.respuesta2);
+        Spinner respuesta3 = (Spinner) findViewById(R.id.respuesta3);
+        Spinner respuesta4 = (Spinner) findViewById(R.id.respuesta4);
+        Spinner respuesta5 = (Spinner) findViewById(R.id.respuesta5);
         //Recuperar valor
-        String respuesta1 = sp1.getSelectedItem().toString();
-        String respuesta2 = sp1.getSelectedItem().toString();
-        String respuesta3 = sp1.getSelectedItem().toString();
-        String respuesta4 = sp1.getSelectedItem().toString();
-        String respuesta5 = sp1.getSelectedItem().toString();
+        String resp1 = respuesta1.getSelectedItem().toString();
+        String resp2 = respuesta2.getSelectedItem().toString();
+        String resp3 = respuesta3.getSelectedItem().toString();
+        String resp4 = respuesta4.getSelectedItem().toString();
+        String resp5 = respuesta5.getSelectedItem().toString();
 
-        Intent i = new Intent(this, MenuPrincipal.class);
-        startActivity(i);
+        if (!resp1.isEmpty() && !resp2.isEmpty() && !resp3.isEmpty() && !resp4.isEmpty() && !resp5.isEmpty()) {
+            // Procesar las respuestas
+            // Por ejemplo, puedes guardarlas en una base de datos o enviarlas a otra actividad
+            Toast.makeText(this, "Encuesta enviada con éxito", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, MenuPrincipal.class);
+            startActivity(i);
+        } else {
+            // Mostrar mensaje de error si no se han respondido todas las preguntas
+            Toast.makeText(this, "Por favor responde todas las preguntas", Toast.LENGTH_SHORT).show();
+        }
     }
-
-
 }

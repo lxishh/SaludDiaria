@@ -51,10 +51,12 @@
     <string name="Peso">Peso (kg) </string>
     <string name="Altura">Altura (cm)</string>
     <string name="Edad">Edad</string>
-
     <string name="correoEjemplo">admin@gmail.com</string>
     <string name="passEjemplo">admin123</string>
 
+    <string name="EncuestaDiaria">Encuesta Diaria</string>
+    <string name="CitasMedicas">Citas Médicas</string>
+    <string name="btnGuardarCambios">Guardar Cambios</string>
 
     <string name="DatosInicio">Datos de inicio de sesion</string>
     <string name="NumeroTel">Numero de telefono</string>
@@ -62,14 +64,29 @@
     <string name="btnListo">Listo</string>
 
 
-
-
     //Menu
     <string name="menuCalendario">Calendario</string>
-    <string name="vAgenda">Ver Agenda</string>
 
+
+    <string name="vAgenda">Ver Agenda Médica</string>
     <string name="horasAgendadas">Horas Agendadas</string>
-    <string name="nConsulta">Agregar nueva consulta</string>
+    <string name="nConsulta">Agregar cita médica</string>
+
+    <string name="lugarCitaMedica">Lugar de la cita</string>
+    <string name="nombreProfesional">Nombre del doctor/a</string>
+    <string name="Especialidad">Especialidad</string>
+    <string name="fechaCitaMedica">Fecha de la cita</string>
+    <string name="horaCitaMedica">Hora de la cita</string>
+
+
+    <string name="HINTlugarCitaMedica">Clinica Atacama</string>
+    <string name="HINTnombreProfesional">Carlos Pezo Correa</string>
+    <string name="HINTEspecialidad">Dermatolog[ia</string>
+    <string name="HINTfechaCitaMedica">Lunes 23 de septiembre</string>
+    <string name="HINThoraCitaMedica">20:00</string>
+
+    <string name="btnAgendarCitaMedica">Guardar cita médica</string>
+
 
 
     <string name="menuHidratacion">Hidratación</string>
