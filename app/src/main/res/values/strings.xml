@@ -113,4 +113,21 @@
     <string name="btnActualizar">Actualizar</string>
 
 
+    <string name="inserteNombre">Nombre</string>
+    <string name="PadecimientosMedicos">Padecimientos Médicos</string>
+    <string name="DetallesMedicos">Detalles Médicos</string>
+    <string name="Alergias">Alergias</string>
+    <string name="Medicamentos">Medicamentos</string>
+
+    <string name="EmergenciaSOS">Emergencia SOS</string>
+    <string name="TelefonosEmergenciaNacional">Teléfonos de Emergencia (Nacional)</string>
+    <string name="SAMU">SAMU</string>
+    <string name="Bomberos">Bomberos</string>
+    <string name="Carabineros">Carabineros</string>
+    <string name="TusContactosEmergencia">Tus Contactos de Emergencia</string>
+    <string name="Mama">Mamá</string>
+    <string name="Llamar">Llamar</string>
+    <string name="AgregarContactoEmergencia">Agregar Contacto de Emergencia</string>
+
+
 </resources>

@@ -44,4 +44,20 @@ public class MenuPrincipal extends AppCompatActivity {
         Intent i = new Intent(this, Hidratacion.class);
         startActivity(i);
     }
+
+
+    public void rFichaMedica(View v){
+        Intent i = new Intent(this, FichaMedica.class);
+        startActivity(i);
+    }
+
+    public void rEmergenciaSOS(View v){
+        Intent i = new Intent(this, EmergenciaSOS.class);
+        startActivity(i);
+    }
+
+    public void rMedicamentos(View v){
+        Intent i = new Intent(this, Medicamentos.class);
+        startActivity(i);
+    }
 }
