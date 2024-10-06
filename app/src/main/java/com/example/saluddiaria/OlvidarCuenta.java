@@ -3,6 +3,7 @@ package com.example.saluddiaria;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -26,6 +27,15 @@ public class OlvidarCuenta extends AppCompatActivity {
     }
 
     public void Recuperar(View v){
+
+        EditText etCorreo = (EditText) findViewById(R.id.etEmail);
+        String correo = etCorreo.getText().toString();
+
+        if (correo.isEmpty()) {
+            Toast.makeText(this, "Por favor, ingresa un correo", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Toast.makeText(this, "Correo enviado", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(this,MainActivity.class);
         startActivity(i);

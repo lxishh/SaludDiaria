@@ -1,8 +1,11 @@
 package com.example.saluddiaria;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,6 +39,16 @@ public class Ajustes extends AppCompatActivity {
 
     public void AjustarNotificaciones(View v){
         Intent i = new Intent(this, Notificaciones.class);
+        startActivity(i);
+    }
+
+    public void logOut(View v){
+        SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = datos.edit();
+        editor.remove("correo");
+        editor.apply();
+        Toast.makeText(this, "Sesion cerrada con exito", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
 }

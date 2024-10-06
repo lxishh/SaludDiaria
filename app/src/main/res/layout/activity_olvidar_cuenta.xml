@@ -15,6 +15,7 @@
         android:layout_marginTop="62dp"
         android:text="@string/app_name"
         android:textAlignment="center"
+        android:textColor="@color/letrasblue"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView8"
@@ -26,7 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="@string/tituloRecuperarPass"
+        android:textAlignment="center"
+        android:textColor="@color/titulosblue"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -35,9 +39,11 @@
         android:id="@+id/textView9"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="282dp"
+        android:layout_marginTop="300dp"
         android:text="@string/introduceCorreo"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,6 +54,7 @@
         android:layout_marginTop="48dp"
         android:text="@string/envioCorreo"
         android:textAlignment="viewStart"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
@@ -57,20 +64,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:backgroundTint="@color/letrasblue"
         android:onClick="Recuperar"
         android:text="@string/btnRecuperar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="wrap_content"
+        android:id="@+id/etEmail"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 

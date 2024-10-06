@@ -81,7 +81,7 @@
 
     <string name="HINTlugarCitaMedica">Clinica Atacama</string>
     <string name="HINTnombreProfesional">Carlos Pezo Correa</string>
-    <string name="HINTEspecialidad">Dermatolog[ia</string>
+    <string name="HINTEspecialidad">Dermatologia</string>
     <string name="HINTfechaCitaMedica">Lunes 23 de septiembre</string>
     <string name="HINThoraCitaMedica">20:00</string>
 
@@ -128,6 +128,20 @@
     <string name="Mama">Mamá</string>
     <string name="Llamar">Llamar</string>
     <string name="AgregarContactoEmergencia">Agregar Contacto de Emergencia</string>
+
+    <string name="Agregarmedicamento">Agregar Medicamento</string>
+
+    <string name="nombreMedicamento">Nombre del medicamento</string>
+    <string name="Paracetamol">Paracetamol</string>
+    <string name="TipoDeMedicamento">Tipo de medicamento</string>
+    <string name="Pastilla">Pastilla</string>
+    <string name="IntensidadDelMedicamento">Intensidad del medicamento</string>
+    <string name="AgregarConcentracion">Agregar concentración</string>
+    <string name="mg">500mg</string>
+    <string name="CuandoLoDebesTomar">¿Cuándo lo debes tomar?</string>
+    <string name="Frecuencia">Frecuencia</string>
+    <string name="TodosLosDias">Todos los días</string>
+    <string name="Horas">Horas</string>
 
 
 </resources>
