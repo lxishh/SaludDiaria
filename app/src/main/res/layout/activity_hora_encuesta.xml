@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/horaEncuesta"
+        android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -29,6 +30,7 @@
         android:id="@+id/btnHoraEncuesta"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/letrasblue"
         android:onClick="definirHora"
         android:text="@string/btnHoraEncuesta" />
 </LinearLayout>

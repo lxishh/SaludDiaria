@@ -8,24 +8,28 @@
     </string-array>
 
     <string-array name="fiebre">
+        <item></item>
         <item>No</item>
         <item>Si, leve</item>
         <item>Si, alta</item>
     </string-array>
 
     <string-array name="tosyrespirar">
+        <item></item>
         <item>No</item>
         <item>Si, tos leve</item>
         <item>Sí, dificultad para respirar o tos persistente</item>
     </string-array>
 
     <string-array name="fatiga">
+        <item></item>
         <item>No</item>
         <item>Si, pero leve</item>
         <item>Si, es muy fuerte</item>
     </string-array>
     
     <string-array name="pecho">
+        <item></item>
         <item>No</item>
         <item>Si, pero leve</item>
         <item>Si, dolor severo o presión intensa</item>
@@ -55,4 +59,30 @@
         <item>Un día antes</item>
         <item>Una semana antes</item>
     </string-array>
+
+
+
+    <string-array name="frecuencia">
+        <item>Todos los días</item>
+        <item>Cada 12 horas</item>
+        <item>Cada 8 horas</item>
+        <item>Cada 6 horas</item>
+    </string-array>
+
+    <string-array name="horasAM">
+        <item>08:00</item>
+        <item>10:00</item>
+        <item>12:00</item>
+    </string-array>
+
+    <string-array name="horasPM">
+        <item>16:00</item>
+        <item>18:00</item>
+        <item>20:00</item>
+        <item>22:00</item>
+    </string-array>
+
+
+
+
 </resources>

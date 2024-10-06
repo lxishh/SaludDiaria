@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="true"
-                    android:paddingLeft="85dp"
+                    android:paddingLeft="60dp"
                     android:text="Eliminar"
                     android:textColor="@color/red"
                     android:textStyle="bold|italic" />

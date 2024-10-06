@@ -118,6 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/letrasblue"
             android:onClick="msgEditar"
             android:text="@string/Editar" />
     </LinearLayout>
@@ -155,6 +156,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/letrasblue"
             android:onClick="msgEditar"
             android:text="@string/Editar" />
     </LinearLayout>
@@ -164,6 +166,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:backgroundTint="@color/letrasblue"
         android:onClick="btnListo"
         android:text="@string/btnListo" />
 </LinearLayout>

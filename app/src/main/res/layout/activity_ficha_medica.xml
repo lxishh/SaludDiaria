@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textView56"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="@string/menuFichaMedica"
+        android:textAlignment="center"
+        android:textColor="@color/titulosblue"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="@string/nombre"
+        android:textColor="@color/titulosblue" />
+
+    <EditText
+        android:id="@+id/nombreEditText"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/textView52"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="@string/PadecimientosMedicos"
+        android:textColor="@color/titulosblue" />
+
+    <EditText
+        android:id="@+id/padecimientosEditText"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/textView53"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="@string/DetallesMedicos"
+        android:textColor="@color/titulosblue" />
+
+    <EditText
+        android:id="@+id/detallesEditText"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/textView54"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Alergias"
+        android:textColor="@color/titulosblue" />
+
+    <EditText
+        android:id="@+id/alergiasEditText"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/textView55"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Medicamentos"
+        android:textColor="@color/titulosblue" />
+
+    <EditText
+        android:id="@+id/medicamentosEditText"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/letrasblue"
+        android:text="@string/btnListo"
+        android:textAlignment="center" />
+
+</LinearLayout>

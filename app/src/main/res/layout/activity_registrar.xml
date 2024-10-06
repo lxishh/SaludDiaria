@@ -99,6 +99,7 @@
         android:id="@+id/button"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/letrasblue"
         android:onClick="registrar"
         android:text="@string/btnRegistrar"
         android:textAlignment="center" />

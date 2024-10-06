@@ -40,6 +40,11 @@ public class Registrar extends AppCompatActivity {
         String password = etPass.getText().toString();
         String password2 = etPass2.getText().toString();
 
+        if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || password.isEmpty() || password2.isEmpty()) {
+            Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if(password.equals(password2)){
             Toast.makeText(this, "Registrado con exito", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, MainActivity.class);
