@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fotoLogo"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".ActualizarDatos">
@@ -13,6 +14,7 @@
         android:id="@+id/textView30"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
         android:text="@string/InformacionPersonal"
         android:textAlignment="center"
@@ -54,7 +56,9 @@
         android:layout_marginBottom="10dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+
+        />
 
     <TextView
         android:id="@+id/textView37"
@@ -78,8 +82,8 @@
         android:id="@+id/textView31"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/DatosInicio"
         android:textAlignment="center"
         android:textSize="16sp"
@@ -111,12 +115,12 @@
             android:focusable="false"
             android:inputType="textEmailAddress"
             android:text="@string/correoEjemplo"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/letrasblue"
             android:onClick="msgEditar"
@@ -149,12 +153,13 @@
             android:ems="10"
             android:focusable="false"
             android:inputType="textPassword"
-            android:text="@string/passEjemplo" />
+            android:text="@string/passEjemplo"
+            android:textSize="15sp"/>
 
         <Button
             android:id="@+id/button14"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/letrasblue"
             android:onClick="msgEditar"
@@ -165,7 +170,8 @@
         android:id="@+id/button16"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/letrasblue"
         android:onClick="btnListo"
         android:text="@string/btnListo" />

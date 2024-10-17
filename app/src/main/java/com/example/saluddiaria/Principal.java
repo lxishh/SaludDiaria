@@ -1,6 +1,9 @@
 package com.example.saluddiaria;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -29,6 +32,8 @@ public class Principal extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
 
         //Referencia al toolbar (layout)
         Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
@@ -89,12 +94,23 @@ public class Principal extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId(); //Recuperando el id de la opcion seleccionada
         if(id==R.id.op1){
-            Toast.makeText(this, "Perfil", Toast.LENGTH_SHORT).show();
+            PerfilFragment perfilFragment = new PerfilFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, perfilFragment).commit();
         }
         else if (id==R.id.op2) {
-            Toast.makeText(this, "Notificaciones", Toast.LENGTH_SHORT).show();
+            NotificacionesFragment notificacionesFragment = new NotificacionesFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, notificacionesFragment).commit();
         } else if (id==R.id.op3) {
             Toast.makeText(this, "Hora Encuesta", Toast.LENGTH_SHORT).show();
+        } else if (id==R.id.op4) {
+            SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor editor = datos.edit();
+            editor.remove("correo");
+            editor.apply();
+            Toast.makeText(this, "Sesion cerrada con exito", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, MainActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
         }
 
 

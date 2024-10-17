@@ -44,7 +44,7 @@ public class Encuesta extends AppCompatActivity {
             // Procesar las respuestas
             // Por ejemplo, puedes guardarlas en una base de datos o enviarlas a otra actividad
             Toast.makeText(this, "Encuesta enviada con éxito", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this, MenuPrincipal.class);
+            Intent i = new Intent(this, Principal.class);
             startActivity(i);
         } else {
             // Mostrar mensaje de error si no se han respondido todas las preguntas
