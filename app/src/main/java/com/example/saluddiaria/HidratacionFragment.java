@@ -1,64 +1,97 @@
 package com.example.saluddiaria;
 
+import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HidratacionFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.fragment.app.Fragment;
+
+import java.util.Calendar;
+
 public class HidratacionFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private ProgressBar progressCircle;
+    private EditText etMlTomados;
+    private TextView tvLunes, tvMartes, tvMiercoles, tvJueves, tvViernes, tvSabado, tvDomingo;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private int totalMlTomados = 0;
+    private final int objetivoDiario = 2000;  // Ejemplo: 2000ml como objetivo diario
 
     public HidratacionFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HidratacionFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HidratacionFragment newInstance(String param1, String param2) {
-        HidratacionFragment fragment = new HidratacionFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        // Constructor vacío requerido
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hidratacion, container, false);
+        // Inflar el layout del fragmento
+        View view = inflater.inflate(R.layout.fragment_hidratacion, container, false);
+
+        // Inicializar las vistas
+        progressCircle = view.findViewById(R.id.progressCircle);
+        etMlTomados = view.findViewById(R.id.etMlTomados);
+        tvLunes = view.findViewById(R.id.tvLunes);
+        tvMartes = view.findViewById(R.id.tvMartes);
+        tvMiercoles = view.findViewById(R.id.tvMiercoles);
+        tvJueves = view.findViewById(R.id.tvJueves);
+        tvViernes = view.findViewById(R.id.tvViernes);
+        tvSabado = view.findViewById(R.id.tvSabado);
+        tvDomingo = view.findViewById(R.id.tvDomingo);
+
+        Button btnActualizar = view.findViewById(R.id.btnActualizar);
+        btnActualizar.setOnClickListener(v -> {
+            String mlTomadosStr = etMlTomados.getText().toString();
+            if (!mlTomadosStr.isEmpty()) {
+                int mlTomados = Integer.parseInt(mlTomadosStr);
+                totalMlTomados += mlTomados;
+
+                if (totalMlTomados > objetivoDiario) {
+                    totalMlTomados = objetivoDiario;
+                }
+
+                progressCircle.setProgress(totalMlTomados);
+
+                // Si se cumple el objetivo, marcar el día de la semana
+                if (totalMlTomados >= objetivoDiario) {
+                    marcarDiaCompletado(Calendar.getInstance().get(Calendar.DAY_OF_WEEK));
+                }
+            }
+        });
+
+        return view;
+    }
+
+    private void marcarDiaCompletado(int diaDeLaSemana) {
+        // Día 2 es lunes, 3 es martes, etc.
+        switch (diaDeLaSemana) {
+            case Calendar.MONDAY:
+                tvLunes.setTextColor(Color.BLUE);  // Marcar en azul o poner un check
+                break;
+            case Calendar.TUESDAY:
+                tvMartes.setTextColor(Color.BLUE);
+                break;
+            case Calendar.WEDNESDAY:
+                tvMiercoles.setTextColor(Color.BLUE);
+                break;
+            case Calendar.THURSDAY:
+                tvJueves.setTextColor(Color.WHITE);
+                tvJueves.setBackgroundResource(R.drawable.background_redondo);
+                break;
+            case Calendar.FRIDAY:
+                tvViernes.setTextColor(Color.BLUE);
+                break;
+            case Calendar.SATURDAY:
+                tvSabado.setTextColor(Color.BLUE);
+                break;
+            case Calendar.SUNDAY:
+                tvDomingo.setTextColor(Color.BLUE);
+                break;
+        }
     }
 }
