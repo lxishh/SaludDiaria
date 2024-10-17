@@ -16,6 +16,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -30,31 +32,51 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void login(View V){
-
+    public void login(View v) {
         EditText campo1 = this.findViewById(R.id.correo);
-        String correo = campo1.getText().toString();
+        String correo = campo1.getText().toString().trim();
 
         EditText campo2 = this.findViewById(R.id.contrasenia);
-        String contrasenia = campo2.getText().toString();
+        String contrasenia = campo2.getText().toString().trim();
 
-        if(correo.equals("admin") && contrasenia.equals("admin")){
-            CheckBox cbRecuerdame = (CheckBox) findViewById(R.id.cbRecuerdame);
-            boolean chequeado = cbRecuerdame.isChecked();
-            if(chequeado==true){
-                SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
-                SharedPreferences.Editor editor = datos.edit();
-                editor.putString("correo", correo);
-                editor.apply();
-            }
-
-
-            Intent i = new Intent(this, horaEncuesta.class);
-            startActivity(i);
-        }else{
-            Toast.makeText(this, "Credenciales invalidas", Toast.LENGTH_SHORT).show();
+        // Validar campos
+        if (correo.isEmpty() || contrasenia.isEmpty()) {
+            Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        // Verificar si el usuario existe en Firestore
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("usuarios")
+                .whereEqualTo("correo", correo)
+                .whereEqualTo("contrasenia", contrasenia) // Comprueba que la contraseña también coincida
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        if (!task.getResult().isEmpty()) {
+                            // El usuario existe, procede a la siguiente actividad
+                            CheckBox cbRecuerdame = findViewById(R.id.cbRecuerdame);
+                            boolean chequeado = cbRecuerdame.isChecked();
+                            if (chequeado) {
+                                SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
+                                SharedPreferences.Editor editor = datos.edit();
+                                editor.putString("correo", correo);
+                                editor.apply();
+                            }
+
+                            Intent i = new Intent(this, horaEncuesta.class);
+                            startActivity(i);
+                        } else {
+                            // Las credenciales son incorrectas
+                            Toast.makeText(this, "Credenciales inválidas", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        // Error al realizar la consulta
+                        Toast.makeText(this, "Error al iniciar sesión: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
+
 
     public void recuperarPass(View V){
         Intent i = new Intent(this, OlvidarCuenta.class);

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "605745254906",
+    "project_id": "salud-diaria-a8df9",
+    "storage_bucket": "salud-diaria-a8df9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605745254906:android:eda5862c4f8db62b705443",
+        "android_client_info": {
+          "package_name": "com.example.saluddiaria"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXr8gyN_HiS52YnhnFlVWbFhsJ3tR4A_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
