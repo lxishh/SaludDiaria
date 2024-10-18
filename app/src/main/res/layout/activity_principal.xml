@@ -31,7 +31,8 @@
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize" />
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/letrasblue"/>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
@@ -63,7 +64,10 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:tabIconTint="@color/letrasblue"
+            app:tabSelectedTextColor="@color/letrasblue"
+            app:tabIndicatorColor="@color/letrasblue">
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tabcalendario"

@@ -71,26 +71,32 @@ public class HidratacionFragment extends Fragment {
         // Día 2 es lunes, 3 es martes, etc.
         switch (diaDeLaSemana) {
             case Calendar.MONDAY:
-                tvLunes.setTextColor(Color.BLUE);  // Marcar en azul o poner un check
+                tvLunes.setTextColor(Color.WHITE);
+                tvLunes.setBackgroundResource(R.drawable.background_redondo);
                 break;
             case Calendar.TUESDAY:
-                tvMartes.setTextColor(Color.BLUE);
+                tvMartes.setTextColor(Color.WHITE);
+                tvMartes.setBackgroundResource(R.drawable.background_redondo);
                 break;
             case Calendar.WEDNESDAY:
-                tvMiercoles.setTextColor(Color.BLUE);
+                tvMiercoles.setTextColor(Color.WHITE);
+                tvMiercoles.setBackgroundResource(R.drawable.background_redondo);
                 break;
             case Calendar.THURSDAY:
                 tvJueves.setTextColor(Color.WHITE);
                 tvJueves.setBackgroundResource(R.drawable.background_redondo);
                 break;
             case Calendar.FRIDAY:
-                tvViernes.setTextColor(Color.BLUE);
+                tvViernes.setTextColor(Color.WHITE);
+                tvViernes.setBackgroundResource(R.drawable.background_redondo);
                 break;
             case Calendar.SATURDAY:
-                tvSabado.setTextColor(Color.BLUE);
+                tvSabado.setTextColor(Color.WHITE);
+                tvSabado.setBackgroundResource(R.drawable.background_redondo);
                 break;
             case Calendar.SUNDAY:
-                tvDomingo.setTextColor(Color.BLUE);
+                tvDomingo.setTextColor(Color.WHITE);
+                tvDomingo.setBackgroundResource(R.drawable.background_redondo);
                 break;
         }
     }

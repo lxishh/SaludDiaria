@@ -41,8 +41,12 @@ public class CalendarioFragment extends Fragment {
         // Configurando el botón de ver agenda
         view.findViewById(R.id.btnAgenda).setOnClickListener(v -> {
             AgendaFragment a = new AgendaFragment();
-            getParentFragmentManager().beginTransaction().replace(R.id.contenedor, a).commit();
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.contenedor, a)
+                    .addToBackStack(null)  // Agrega a la pila de retroceso
+                    .commit();
         });
+
 
         return view;
     }

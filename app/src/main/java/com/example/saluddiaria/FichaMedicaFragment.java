@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -27,7 +28,7 @@ public class FichaMedicaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflar el layout para este fragmento
         View view = inflater.inflate(R.layout.fragment_ficha_medica, container, false);
 
         // Referencias a los EditText y Button
@@ -39,36 +40,43 @@ public class FichaMedicaFragment extends Fragment {
         button = view.findViewById(R.id.button);
 
         // Configurar el OnClickListener para el botón
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Obtener los valores ingresados
-                String nombre = nombreEditText.getText().toString();
-                String padecimientos = padecimientosEditText.getText().toString();
-                String detalles = detallesEditText.getText().toString();
-                String alergias = alergiasEditText.getText().toString();
-                String medicamentos = medicamentosEditText.getText().toString();
+        button.setOnClickListener(v -> {
+            // Mostrar un mensaje de guardado exitoso
+            Toast.makeText(getContext(), "Cambios guardados con éxito", Toast.LENGTH_SHORT).show();
 
-                // Cambiar los EditText a no editables
-                setEditTextNotEditable(nombreEditText);
-                setEditTextNotEditable(padecimientosEditText);
-                setEditTextNotEditable(detallesEditText);
-                setEditTextNotEditable(alergiasEditText);
-                setEditTextNotEditable(medicamentosEditText);
-
-                // Deshabilitar el botón después de guardar
-                button.setEnabled(false);
-            }
+            // Hacer los EditText no editables
+            makeEditTextNonEditable(nombreEditText);
+            makeEditTextNonEditable(padecimientosEditText);
+            makeEditTextNonEditable(detallesEditText);
+            makeEditTextNonEditable(alergiasEditText);
+            makeEditTextNonEditable(medicamentosEditText);
         });
+
+        // Configurar el click en cada EditText para volverlos editables
+        nombreEditText.setOnClickListener(v -> makeEditTextEditable(nombreEditText));
+        padecimientosEditText.setOnClickListener(v -> makeEditTextEditable(padecimientosEditText));
+        detallesEditText.setOnClickListener(v -> makeEditTextEditable(detallesEditText));
+        alergiasEditText.setOnClickListener(v -> makeEditTextEditable(alergiasEditText));
+        medicamentosEditText.setOnClickListener(v -> makeEditTextEditable(medicamentosEditText));
 
         return view;
     }
 
-    // Método para deshabilitar un EditText
-    private void setEditTextNotEditable(EditText editText) {
+    // Método para hacer que un EditText no sea editable
+    private void makeEditTextNonEditable(EditText editText) {
         editText.setFocusable(false);
-        editText.setFocusableInTouchMode(false);
-        editText.setClickable(false);
-        editText.setBackgroundColor(Color.TRANSPARENT); // Cambiar color de fondo a transparente (opcional)
+        editText.setClickable(true);  // Permitimos que detecte clics
+        editText.setCursorVisible(false);  // Ocultamos el cursor
+        editText.setBackgroundColor(Color.TRANSPARENT);  // Cambiamos el fondo para indicar que no es editable
+        editText.setTextColor(Color.GRAY);  // Cambia el color del texto a gris
+    }
+
+    // Método para hacer que un EditText sea editable
+    private void makeEditTextEditable(EditText editText) {
+        editText.setFocusableInTouchMode(true);  // Permite el enfoque al tocar
+        editText.setClickable(false);  // Ya no detecta clics
+        editText.setCursorVisible(true);  // Muestra el cursor
+        editText.setBackgroundColor(Color.TRANSPARENT);  // Fondo transparente
+        editText.setTextColor(Color.BLACK);  // Cambia el color del texto a negro
     }
 }

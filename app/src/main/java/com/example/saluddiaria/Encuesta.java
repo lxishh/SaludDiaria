@@ -1,7 +1,9 @@
 package com.example.saluddiaria;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -18,6 +20,19 @@ public class Encuesta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+
+        // Verificar si la encuesta ya fue enviada
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean encuestaEnviada = prefs.getBoolean("encuestaEnviada", false);
+
+        if (encuestaEnviada) {
+            // Si la encuesta ya fue enviada, ir directamente a la actividad Principal
+            Intent i = new Intent(this, Principal.class);
+            startActivity(i);
+            finish(); // Cerrar la actividad actual
+            return; // Salir del método onCreate
+        }
+
         setContentView(R.layout.activity_encuesta);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.fotoLogo), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -26,14 +41,15 @@ public class Encuesta extends AppCompatActivity {
         });
     }
 
-    public void EnviarForm(View v){
-        //Recuperar view
+    public void EnviarForm(View v) {
+        // Recuperar view
         Spinner respuesta1 = (Spinner) findViewById(R.id.respuesta1);
         Spinner respuesta2 = (Spinner) findViewById(R.id.respuesta2);
         Spinner respuesta3 = (Spinner) findViewById(R.id.respuesta3);
         Spinner respuesta4 = (Spinner) findViewById(R.id.respuesta4);
         Spinner respuesta5 = (Spinner) findViewById(R.id.respuesta5);
-        //Recuperar valor
+
+        // Recuperar valor
         String resp1 = respuesta1.getSelectedItem().toString();
         String resp2 = respuesta2.getSelectedItem().toString();
         String resp3 = respuesta3.getSelectedItem().toString();
@@ -44,8 +60,17 @@ public class Encuesta extends AppCompatActivity {
             // Procesar las respuestas
             // Por ejemplo, puedes guardarlas en una base de datos o enviarlas a otra actividad
             Toast.makeText(this, "Encuesta enviada con éxito", Toast.LENGTH_SHORT).show();
+
+            // Guardar que la encuesta ha sido enviada
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("encuestaEnviada", true); // Cambia a true
+            editor.apply();
+
+            // Iniciar la actividad Principal
             Intent i = new Intent(this, Principal.class);
             startActivity(i);
+            finish(); // Cerrar la actividad actual
         } else {
             // Mostrar mensaje de error si no se han respondido todas las preguntas
             Toast.makeText(this, "Por favor responde todas las preguntas", Toast.LENGTH_SHORT).show();

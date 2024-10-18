@@ -41,6 +41,16 @@ public class Principal extends AppCompatActivity {
 
         TabLayout tl = (TabLayout) findViewById(R.id.tablayout);
 
+
+        // Comprobar si no hay fragmentos cargados y cargar el fragmento predeterminado
+        if (savedInstanceState == null) {
+            CalendarioFragment c = new CalendarioFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.contenedor, c)
+                    .commit();  // Cargar CalendarioFragment al inicio
+        }
+
+
         tl.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -101,7 +111,16 @@ public class Principal extends AppCompatActivity {
             NotificacionesFragment notificacionesFragment = new NotificacionesFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, notificacionesFragment).commit();
         } else if (id==R.id.op3) {
-            Toast.makeText(this, "Hora Encuesta", Toast.LENGTH_SHORT).show();
+            // Restablecer el estado para permitir que se muestre la actividad de nuevo
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("horaEncuestaMostrada", false); // Cambia a false
+            editor.apply();
+
+            Intent hora = new Intent(this, horaEncuesta.class);
+            hora.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(hora);
+
         } else if (id==R.id.op4) {
             SharedPreferences datos = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = datos.edit();

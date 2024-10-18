@@ -18,6 +18,7 @@
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textAllCaps="false"
+        android:textColor="@color/titulosblue"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -27,6 +28,7 @@
         android:layout_height="wrap_content"
         android:text="@string/horasAgendadas"
         android:textAlignment="center"
+        android:textColor="@color/titulosblue"
         android:textSize="16sp"
         android:textStyle="bold" />
 
