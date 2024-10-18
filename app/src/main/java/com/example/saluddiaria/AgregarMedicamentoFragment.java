@@ -11,9 +11,9 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-public class MedicamentosFragment extends Fragment {
+public class AgregarMedicamentoFragment extends Fragment {
 
-    public MedicamentosFragment() {
+    public AgregarMedicamentoFragment() {
         // Required empty public constructor
     }
 
@@ -25,7 +25,7 @@ public class MedicamentosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflar el layout del fragmento
-        View view = inflater.inflate(R.layout.fragment_medicamentos, container, false);
+        View view = inflater.inflate(R.layout.fragment_agregar_medicamento, container, false);
 
         // Manejar EdgeToEdge y los insets de la barra del sistema
         ViewCompat.setOnApplyWindowInsetsListener(view.findViewById(R.id.main), (v, insets) -> {
@@ -34,11 +34,11 @@ public class MedicamentosFragment extends Fragment {
             return insets;
         });
 
-        // Configurar el botón para abrir el fragmento de "AgregarMedicamento"
-        view.findViewById(R.id.btnAgregarMedicamento).setOnClickListener(v -> {
-            // Reemplazar con el fragmento "AgregarMedicamento"
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.contenedor, new AgregarMedicamentoFragment());
+        // Configurar el botón "Listo" para reemplazar el fragmento actual
+        view.findViewById(R.id.btnListoMed).setOnClickListener(v -> {
+            // Reemplazar con el fragmento "MedicamentosFragment"
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.replace(R.id.contenedor, new MedicamentosFragment());
             transaction.addToBackStack(null);  // Para permitir volver atrás
             transaction.commit();
         });

@@ -23,14 +23,14 @@ public class CitaMedicaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_cita_medica, container, false);
 
         // Inicializar los EditTexts
-        etLugar = view.findViewById(R.id.etLugar);
-        etNombreDoc = view.findViewById(R.id.etNombreDoc);
-        etEspecialidad = view.findViewById(R.id.etEspecialidad);
+        etLugar = view.findViewById(R.id.etMedicamento);
+        etNombreDoc = view.findViewById(R.id.etTipoMedicamento);
+        etEspecialidad = view.findViewById(R.id.etIntensidad);
         etFechaCita = view.findViewById(R.id.etFechaCita);
         etHoraCita = view.findViewById(R.id.etHoraCita);
 
         // Configurar el botón para agendar la cita
-        Button btnAgendar = view.findViewById(R.id.button17);
+        Button btnAgendar = view.findViewById(R.id.btnListoMed);
         btnAgendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

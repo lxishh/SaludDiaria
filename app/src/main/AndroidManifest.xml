@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
 
     <application
         android:allowBackup="true"
@@ -16,42 +18,6 @@
         tools:targetApi="31">
         <activity
             android:name=".Principal"
-            android:exported="false" />
-        <activity
-            android:name=".AgregarMedicamento"
-            android:exported="false" />
-        <activity
-            android:name=".Medicamentos"
-            android:exported="false" />
-        <activity
-            android:name=".EmergenciaSOS"
-            android:exported="false" />
-        <activity
-            android:name=".FichaMedica"
-            android:exported="false" />
-        <activity
-            android:name=".Hidratacion"
-            android:exported="false" />
-        <activity
-            android:name=".CitaMedica"
-            android:exported="false" />
-        <activity
-            android:name=".Notificaciones"
-            android:exported="false" />
-        <activity
-            android:name=".ActualizarDatos"
-            android:exported="false" />
-        <activity
-            android:name=".Calendario"
-            android:exported="false" />
-        <activity
-            android:name=".Agenda"
-            android:exported="false" />
-        <activity
-            android:name=".Ajustes"
-            android:exported="false" />
-        <activity
-            android:name=".MenuPrincipal"
             android:exported="false" />
         <activity
             android:name=".horaEncuesta"

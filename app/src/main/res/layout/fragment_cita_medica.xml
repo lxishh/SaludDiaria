@@ -21,7 +21,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/etLugar"
+        android:id="@+id/etMedicamento"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -41,7 +41,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/etNombreDoc"
+        android:id="@+id/etTipoMedicamento"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -61,7 +61,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/etEspecialidad"
+        android:id="@+id/etIntensidad"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -112,7 +112,7 @@
         android:textSize="16sp" />
 
     <Button
-        android:id="@+id/button17"
+        android:id="@+id/btnListoMed"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
