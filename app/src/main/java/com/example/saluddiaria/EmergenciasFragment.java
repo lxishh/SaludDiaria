@@ -49,7 +49,7 @@ public class EmergenciasFragment extends Fragment {
         super.onCreate(savedInstanceState);
         // Inicializa Firestore
         db = FirebaseFirestore.getInstance();
-        emergencyNumbersRef = db.collection("emergency_numbers"); // Cambia esto al nombre de tu colección
+        emergencyNumbersRef = db.collection("numeros_emergencia");
     }
 
     @Override
