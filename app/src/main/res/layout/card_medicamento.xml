@@ -67,13 +67,26 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/btn_editar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/letrasblue"
+            android:padding="4dp"
+            app:srcCompat="@drawable/ic_edit" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
             android:id="@+id/btn_eliminarCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="12dp"
             android:background="#FF0000"
-            android:padding="5dp"
+            android:padding="4dp"
             app:srcCompat="@drawable/ic_eliminar" />
 
     </LinearLayout>
