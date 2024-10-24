@@ -34,7 +34,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/etMedicamento"
+            android:id="@+id/et_nombre_med"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
@@ -54,7 +54,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/etTipoMedicamento"
+            android:id="@+id/et_tipo_med"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
@@ -74,7 +74,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/etIntensidad"
+            android:id="@+id/et_intensidad_med"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
@@ -136,29 +136,34 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="150dp"
+            <EditText
+                android:id="@+id/et_hora_am"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:entries="@array/horasAM"
+                android:ems="10"
+                android:hint="@string/horaMedAM"
+                android:inputType="time"
                 android:textAlignment="center" />
 
-            <Spinner
-                android:id="@+id/spinner6"
-                android:layout_width="150dp"
+            <EditText
+                android:id="@+id/et_hora_pm"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:entries="@array/horasPM" />
+                android:ems="10"
+                android:hint="@string/horaMedPM"
+                android:inputType="time"
+                android:textAlignment="center" />
+
         </LinearLayout>
 
         <Button
-            android:id="@+id/btnListoMed"
+            android:id="@+id/btn_add"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:backgroundTint="@color/letrasblue"
-            android:onClick="rListo"
             android:text="@string/btnListo" />
 
     </LinearLayout>

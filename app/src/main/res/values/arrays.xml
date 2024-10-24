@@ -61,27 +61,11 @@
     </string-array>
 
 
-
     <string-array name="frecuencia">
-        <item>Todos los días</item>
         <item>Cada 12 horas</item>
         <item>Cada 8 horas</item>
         <item>Cada 6 horas</item>
     </string-array>
-
-    <string-array name="horasAM">
-        <item>08:00</item>
-        <item>10:00</item>
-        <item>12:00</item>
-    </string-array>
-
-    <string-array name="horasPM">
-        <item>16:00</item>
-        <item>18:00</item>
-        <item>20:00</item>
-        <item>22:00</item>
-    </string-array>
-
 
 
 

@@ -149,9 +149,12 @@
     <string name="ajustesHoraEncuesta">Hora Encuesta</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    
+
     <string name="btnAgregarContacto">Agregar Contacto</string>
 
     <string name="hintEmergencias">Ingrese número de emergencia</string>
     <string name="AgregarContacto">Agregar Contacto</string>
+
+    <string name="horaMedAM">11:00AM</string>
+    <string name="horaMedPM">23:00PM</string>
 </resources>

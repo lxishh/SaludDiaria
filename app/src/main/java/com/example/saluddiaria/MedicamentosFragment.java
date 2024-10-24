@@ -10,8 +10,21 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.saluddiaria.adapter.MedicamentoAdapter;
+import com.example.saluddiaria.model.Medicamento;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class MedicamentosFragment extends Fragment {
+
+
+    RecyclerView mRecycler;
+    MedicamentoAdapter mAdapter;
+    FirebaseFirestore mFirestore;
 
     public MedicamentosFragment() {
         // Required empty public constructor
@@ -27,12 +40,18 @@ public class MedicamentosFragment extends Fragment {
         // Inflar el layout del fragmento
         View view = inflater.inflate(R.layout.fragment_medicamentos, container, false);
 
-        // Manejar EdgeToEdge y los insets de la barra del sistema
-        ViewCompat.setOnApplyWindowInsetsListener(view.findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        mFirestore = FirebaseFirestore.getInstance();
+        mRecycler = view.findViewById(R.id.recyclerViewSingle);
+        mRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        Query query = mFirestore.collection("medicamentos");
+
+        FirestoreRecyclerOptions<Medicamento> firestoreRecyclerOptions =
+                new FirestoreRecyclerOptions.Builder<Medicamento>().setQuery(query, Medicamento.class).build();
+
+        mAdapter = new MedicamentoAdapter(firestoreRecyclerOptions, getContext());
+        mAdapter.notifyDataSetChanged();
+        mRecycler.setAdapter(mAdapter);
+
 
         // Configurar el botón para abrir el fragmento de "AgregarMedicamento"
         view.findViewById(R.id.btnAgregarMedicamento).setOnClickListener(v -> {
@@ -45,4 +64,17 @@ public class MedicamentosFragment extends Fragment {
 
         return view;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAdapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mAdapter.stopListening();
+    }
+
 }
