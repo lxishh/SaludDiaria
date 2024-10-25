@@ -90,7 +90,7 @@ public class AgregarMedicamentoFragment extends Fragment {
             });
         }else{
             getMed();
-            btn_add.setText("actualizar");
+            btn_add.setText("Actualizar");
             btn_add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -21,6 +21,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
@@ -32,20 +33,12 @@
                 <TextView
                     android:id="@+id/tvLugar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Lugar" />
-
-                <TextView
-                    android:id="@+id/btnEliminar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:paddingLeft="60dp"
-                    android:text="Eliminar"
-                    android:textColor="@color/red"
-                    android:textStyle="bold|italic" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="3dp"
+                    android:text="Lugar"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -54,14 +47,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Nombre" />
+                android:paddingLeft="5dp"
+                android:text="Nombre"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvEspecialidad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Especialidad" />
+                android:paddingLeft="5dp"
+                android:text="Especialidad"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,20 +69,50 @@
                 <TextView
                     android:id="@+id/tvFecha"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:paddingLeft="5dp"
+                    android:paddingBottom="3dp"
                     android:text="Fecha"
-                    android:textColor="@color/letrasblue" />
+                    android:textColor="@color/letrasblue"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvHora"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:paddingLeft="5dp"
+                    android:paddingBottom="3dp"
                     android:text="Hora"
-                    android:textColor="@color/letrasblue" />
+                    android:textColor="@color/letrasblue"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btn_editar_agendado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/letrasblue"
+            android:padding="4dp"
+            app:srcCompat="@drawable/ic_edit" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/btn_eliminar_agendado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:background="#FF0000"
+            android:padding="4dp"
+            app:srcCompat="@drawable/ic_eliminar" />
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>
