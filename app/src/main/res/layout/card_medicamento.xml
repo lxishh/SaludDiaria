@@ -67,11 +67,12 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/btn_editar"
+            android:id="@+id/btn_editarCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@color/letrasblue"
+            android:clickable="false"
             android:padding="4dp"
             app:srcCompat="@drawable/ic_edit" />
 
@@ -86,6 +87,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="12dp"
             android:background="#FF0000"
+            android:clickable="false"
             android:padding="4dp"
             app:srcCompat="@drawable/ic_eliminar" />
 

@@ -1,6 +1,7 @@
 package com.example.saluddiaria.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +10,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.saluddiaria.AgregarMedicamentoFragment;
 import com.example.saluddiaria.R;
 import com.example.saluddiaria.model.Medicamento;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -24,22 +28,18 @@ public class MedicamentoAdapter extends FirestoreRecyclerAdapter<Medicamento, Me
 
     private FirebaseFirestore mFirestore = FirebaseFirestore.getInstance();
     private Context context;
+    FragmentManager fm;
 
-    /**
-     * Create a new RecyclerView adapter that listens to a Firestore Query.  See {@link
-     * FirestoreRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
-    public MedicamentoAdapter(@NonNull FirestoreRecyclerOptions<Medicamento> options, Context context) {
+    public MedicamentoAdapter(@NonNull FirestoreRecyclerOptions<Medicamento> options, Context context, FragmentManager fm) {
         super(options);
         this.context = context;
+        this.fm = fm;
     }
 
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder viewHolder, int i, @NonNull Medicamento Medicamento) {
 
-        DocumentSnapshot documentSnapshot = getSnapshots().getSnapshot(viewHolder.getAdapterPosition());
+        DocumentSnapshot documentSnapshot = getSnapshots().getSnapshot(viewHolder.getBindingAdapterPosition());
         final String id = documentSnapshot.getId();
 
         //Mostrar los campos referenciados, llamarlos para mostrar
@@ -48,6 +48,21 @@ public class MedicamentoAdapter extends FirestoreRecyclerAdapter<Medicamento, Me
         viewHolder.tipo.setText(Medicamento.getTipo());
         viewHolder.intensidad.setText(Medicamento.getIntensidad());
         viewHolder.frecuencia.setText(Medicamento.getFrecuencia());
+
+        viewHolder.btn_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AgregarMedicamentoFragment agregarMedicamentoFragment = new AgregarMedicamentoFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("id_med", id);
+                agregarMedicamentoFragment.setArguments(bundle);
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.contenedor, agregarMedicamentoFragment); // R.id.container es el ID del contenedor donde quieres mostrar el fragmento
+                transaction.addToBackStack(null); // Esto permite regresar al fragmento anterior
+                transaction.commit();
+
+            }
+        });
 
         viewHolder.btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +101,7 @@ public class MedicamentoAdapter extends FirestoreRecyclerAdapter<Medicamento, Me
         //Referenciar cada uno de los campos
         //Instancias, pasando a traves del setText
         TextView nombre, tipo, intensidad, frecuencia;
-        ImageView btn_delete;
+        ImageView btn_delete, btn_edit;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -98,6 +113,7 @@ public class MedicamentoAdapter extends FirestoreRecyclerAdapter<Medicamento, Me
             frecuencia = itemView.findViewById(R.id.tvFrecuenciaMed);
 
             btn_delete = itemView.findViewById(R.id.btn_eliminarCard);
+            btn_edit = itemView.findViewById(R.id.btn_editarCard);
 
         }
     }

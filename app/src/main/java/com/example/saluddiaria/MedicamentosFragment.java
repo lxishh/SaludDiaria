@@ -48,7 +48,7 @@ public class MedicamentosFragment extends Fragment {
         FirestoreRecyclerOptions<Medicamento> firestoreRecyclerOptions =
                 new FirestoreRecyclerOptions.Builder<Medicamento>().setQuery(query, Medicamento.class).build();
 
-        mAdapter = new MedicamentoAdapter(firestoreRecyclerOptions, getContext());
+        mAdapter = new MedicamentoAdapter(firestoreRecyclerOptions, getContext(), getParentFragmentManager() );
         mAdapter.notifyDataSetChanged();
         mRecycler.setAdapter(mAdapter);
 
@@ -56,7 +56,7 @@ public class MedicamentosFragment extends Fragment {
         // Configurar el botón para abrir el fragmento de "AgregarMedicamento"
         view.findViewById(R.id.btnAgregarMedicamento).setOnClickListener(v -> {
             // Reemplazar con el fragmento "AgregarMedicamento"
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
             transaction.replace(R.id.contenedor, new AgregarMedicamentoFragment());
             transaction.addToBackStack(null);  // Para permitir volver atrás
             transaction.commit();

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -19,6 +20,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -26,7 +28,7 @@ import java.util.Map;
 
 public class AgregarMedicamentoFragment extends Fragment {
 
-
+    String id_med;
     Button btn_add;
     EditText nombre, tipo, intensidad, horaam, horapm;
     Spinner frecuencia;
@@ -36,6 +38,9 @@ public class AgregarMedicamentoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(getArguments()!=null){
+            id_med = getArguments().getString("id_med");
+        }
     }
 
     @Override
@@ -65,36 +70,75 @@ public class AgregarMedicamentoFragment extends Fragment {
 
         btn_add = view.findViewById(R.id.btn_add);
 
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String nombremed = nombre.getText().toString().trim();
-                String tipomed =  tipo.getText().toString().trim();
-                String intensidadmed = intensidad.getText().toString().trim();
-                String frecuenciamed = frecuencia.getSelectedItem().toString();
-                String ammed = horaam.getText().toString().trim();
-                String pmmed = horaam.getText().toString().trim();
+        if(id_med==null || id_med.isEmpty()){
+            btn_add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String nombremed = nombre.getText().toString().trim();
+                    String tipomed =  tipo.getText().toString().trim();
+                    String intensidadmed = intensidad.getText().toString().trim();
+                    String frecuenciamed = frecuencia.getSelectedItem().toString();
+                    String ammed = horaam.getText().toString().trim();
+                    String pmmed = horapm.getText().toString().trim();
 
-                if(nombremed.isEmpty() && tipomed.isEmpty() && intensidadmed.isEmpty() && frecuenciamed.isEmpty() && ammed.isEmpty() && pmmed.isEmpty()){
-                    Toast.makeText(getContext(), "Ingresa los datos", Toast.LENGTH_SHORT).show();
-                }else{
-                    postMed(nombremed, tipomed, intensidadmed, frecuenciamed, ammed, pmmed);
+                    if(nombremed.isEmpty() && tipomed.isEmpty() && intensidadmed.isEmpty() && frecuenciamed.isEmpty() && ammed.isEmpty() && pmmed.isEmpty()){
+                        Toast.makeText(getContext(), "Ingresa los datos", Toast.LENGTH_SHORT).show();
+                    }else{
+                        postMed(nombremed, tipomed, intensidadmed, frecuenciamed, ammed, pmmed);
+                    }
                 }
+            });
+        }else{
+            getMed();
+            btn_add.setText("actualizar");
+            btn_add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String nombremed = nombre.getText().toString().trim();
+                    String tipomed =  tipo.getText().toString().trim();
+                    String intensidadmed = intensidad.getText().toString().trim();
+                    String frecuenciamed = frecuencia.getSelectedItem().toString();
+                    String ammed = horaam.getText().toString().trim();
+                    String pmmed = horapm.getText().toString().trim();
 
+                    if(nombremed.isEmpty() && tipomed.isEmpty() && intensidadmed.isEmpty() && frecuenciamed.isEmpty() && ammed.isEmpty() && pmmed.isEmpty()){
+                        Toast.makeText(getContext(), "Ingresa los datos", Toast.LENGTH_SHORT).show();
+                    }else{
+                        updateMed(nombremed, tipomed, intensidadmed, frecuenciamed, ammed, pmmed);
+                    }
+                }
+            });
+
+        }
+
+
+        return view;
+    }
+
+    private void updateMed(String nombremed, String tipomed, String intensidadmed, String frecuenciamed, String ammed, String pmmed) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("nombre", nombremed);
+        map.put("tipo", tipomed);
+        map.put("intensidad", intensidadmed);
+        map.put("frecuencia", frecuenciamed);
+        map.put("hora_am", ammed);
+        map.put("hora_pm", pmmed);
+
+        mfirestore.collection("medicamentos").document(id_med).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(getContext(), "Actualizado con exito", Toast.LENGTH_SHORT).show();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.contenedor, new MedicamentosFragment());
+                transaction.commit();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getContext(), "Error al ingresar", Toast.LENGTH_SHORT).show();
             }
         });
 
-
-//        // Configurar el botón "Listo" para reemplazar el fragmento actual
-//        view.findViewById(R.id.btn_add).setOnClickListener(v -> {
-//            // Reemplazar con el fragmento "MedicamentosFragment"
-//            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//            transaction.replace(R.id.contenedor, new MedicamentosFragment());
-//            transaction.addToBackStack(null);  // Para permitir volver atrás
-//            transaction.commit();
-//        });
-
-        return view;
     }
 
     private void postMed(String nombremed, String tipomed, String intensidadmed, String frecuenciamed, String ammed, String pmmed) {
@@ -105,8 +149,6 @@ public class AgregarMedicamentoFragment extends Fragment {
         map.put("frecuencia", frecuenciamed);
         map.put("hora_am", ammed);
         map.put("hora_pm", pmmed);
-
-
 
         mfirestore.collection("medicamentos").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
@@ -119,8 +161,49 @@ public class AgregarMedicamentoFragment extends Fragment {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getContext(), "Error al ignresar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Error al ingresar", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void getMed(){
+        mfirestore.collection("medicamentos").document(id_med).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String nombremed = documentSnapshot.getString("nombre");
+                String tipomed = documentSnapshot.getString("tipo");
+                String intensidadmed = documentSnapshot.getString("intensidad");
+
+
+                String frecuenciamed = documentSnapshot.getString("frecuencia");
+
+
+                String ammed = documentSnapshot.getString("hora_am");
+                String pmmed = documentSnapshot.getString("hora_pm");
+
+                nombre.setText(nombremed);
+                tipo.setText(tipomed);
+                intensidad.setText(intensidadmed);
+
+
+                // Seleccionar el elemento en el Spinner
+                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
+                        R.array.frecuencia, android.R.layout.simple_spinner_item);
+                frecuencia.setAdapter(adapter);
+                int spinnerPosition = adapter.getPosition(frecuenciamed);
+                frecuencia.setSelection(spinnerPosition);
+
+
+                horaam.setText(ammed);
+                horapm.setText(pmmed);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getContext(), "Error al obtener los datos.", Toast.LENGTH_SHORT).show();
             }
         });
     }
 }
+
+
