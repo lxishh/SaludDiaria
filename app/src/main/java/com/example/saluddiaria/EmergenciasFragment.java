@@ -100,8 +100,6 @@ public class EmergenciasFragment extends Fragment {
                     String phoneNumber = document.getString("number");
                     if (phoneNumber != null) {
                         existingNumbers.add(phoneNumber); // Añadir a la lista
-                        // No llames a addEmergencyNumber aquí
-                        // Agregar el número al LinearLayout directamente
                         addNumberToLayout(phoneNumber);
                     }
                 }

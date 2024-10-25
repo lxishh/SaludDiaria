@@ -1,11 +1,9 @@
 package com.example.saluddiaria;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -39,7 +37,7 @@ public class CalendarioFragment extends Fragment {
         // Configurar el evento para ir a la actividad Agenda
 
         // Configurando el botón de ver agenda
-        view.findViewById(R.id.btnAgenda).setOnClickListener(v -> {
+        view.findViewById(R.id.btnVerAgendaMed).setOnClickListener(v -> {
             AgendaFragment a = new AgendaFragment();
             getParentFragmentManager().beginTransaction()
                     .replace(R.id.contenedor, a)

@@ -68,7 +68,6 @@ public class MedicamentoAdapter extends FirestoreRecyclerAdapter<Medicamento, Me
             @Override
             public void onClick(View view) {
                 deleteMedicamento(id);
-
             }
         });
     }

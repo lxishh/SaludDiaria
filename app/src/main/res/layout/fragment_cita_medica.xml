@@ -7,8 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".CitaMedica">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView47"
@@ -21,7 +20,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/etMedicamento"
+        android:id="@+id/etLugarCita"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -41,7 +40,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/etTipoMedicamento"
+        android:id="@+id/etNombreDoc"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -61,7 +60,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/etIntensidad"
+        android:id="@+id/etEspecialidadDoc"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"

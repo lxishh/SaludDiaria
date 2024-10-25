@@ -1,4 +1,4 @@
-package com.example.saluddiaria;
+package com.example.saluddiaria.model;
 
 public class Cita {
     private String id; // Añadir el campo id
@@ -8,7 +8,10 @@ public class Cita {
     private String fecha;
     private String hora;
 
-    // Constructor con id
+    // Constructor vacío requerido
+    public Cita() {}
+
+    // Constructor con todos los parámetros
     public Cita(String id, String lugar, String nombreDoc, String especialidad, String fecha, String hora) {
         this.id = id;
         this.lugar = lugar;
@@ -43,8 +46,28 @@ public class Cita {
         return hora;
     }
 
-    // Setter para id
+    // Setters
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
+    }
+
+    public void setNombreDoc(String nombreDoc) {
+        this.nombreDoc = nombreDoc;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 }

@@ -7,8 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".Calendario">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView26"
@@ -39,12 +38,11 @@
         android:layout_marginTop="10dp" />
 
     <Button
-        android:id="@+id/btnAgenda"
+        android:id="@+id/btnVerAgendaMed"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:backgroundTint="@color/letrasblue"
-        android:onClick="irAgenda"
         android:text="@string/vAgenda"
         android:textAlignment="center" />
 </LinearLayout>

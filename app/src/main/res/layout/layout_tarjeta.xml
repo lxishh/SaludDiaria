@@ -92,7 +92,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/btn_editar_agendado"
+            android:id="@+id/btn_editar_Tarjeta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content" />
 
         <ImageView
-            android:id="@+id/btn_eliminar_agendado"
+            android:id="@+id/btnEliminarTarjeta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
